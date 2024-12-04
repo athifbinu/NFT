@@ -7,7 +7,7 @@ import "slick-carousel/slick/slick-theme.css";
 import img1 from "../assets/iamges/girl-with-vr-glasses-metaverse-concept-generated-ai_802770-124.jpg";
 
 const Home = () => {
-  const [selectedCard, setSelectedCard] = useState(null); // State to track the selected card
+  const [selectedCard, setSelectedCard] = useState(null);
 
   const [isToggled, setIsToggled] = useState(false);
   // Array of images
@@ -28,6 +28,7 @@ const Home = () => {
     autoplay: true,
     autoplaySpeed: 2000,
     slidesToScroll: 1,
+    arrows: false,
     responsive: [
       {
         breakpoint: 1024,
@@ -58,7 +59,7 @@ const Home = () => {
           {images.map((image) => (
             <div
               key={image.id}
-              className={` rounded-lg cursor-pointer transform transition-transform duration-300 bg-black h-80 mb-10 ${
+              className={` rounded-lg cursor-pointer transform transition-transform duration-300 bg-black h-80 mb-10  ${
                 selectedCard === image.id
                   ? " border-4 border-green-500"
                   : "border-4 border-transparent"
@@ -76,7 +77,7 @@ const Home = () => {
 
         {/* Minimum Trade Size Section */}
         <div>
-          <div className="justify-between flex font-bold mb-6">
+          <div className="justify-between flex gap-8 items-center font-bold mb-6">
             <div>
               <h2 className="text-rose-500">Minimum Trade Size</h2>
             </div>
@@ -85,7 +86,7 @@ const Home = () => {
               <button
                 onClick={() => setIsToggled(!isToggled)}
                 className={`relative w-14 h-7 rounded-full transition-colors duration-300 ${
-                  isToggled ? "bg-rose-700" : "bg-gray-700"
+                  isToggled ? "bg-rose-700" : "bg-rose-700"
                 }`}
               >
                 <span
